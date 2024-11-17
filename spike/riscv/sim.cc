@@ -196,7 +196,9 @@ int sim_t::run()
 {
   host = context_t::current();
   target.init(sim_thread_main, this);
-  return htif_t::run();
+  int result = htif_t::run();
+  printf("%zu\n",current_step);
+  return result
 }
 
 void sim_t::step(size_t n)
